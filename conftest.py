@@ -14,24 +14,24 @@ options.add_argument('--ignore-certificate-errors')
 #
 
 
-# @pytest.fixture(scope='session', autouse=True)
-# def driver():
-#     driver = webdriver.Remote(
-#         command_executor='http://localhost:4444/wd/hub',
-#         options=options
-#     )
-#     driver.maximize_window()
-#     yield driver
-#     driver.quit()
-
-
-""" Код для запуска с ПК  """
 @pytest.fixture(scope='session', autouse=True)
 def driver():
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    driver = webdriver.Remote(
+        command_executor='http://localhost:4444/wd/hub',
+        options=options
+    )
     driver.maximize_window()
     yield driver
     driver.quit()
+
+
+""" Код для запуска с ПК  """
+# @pytest.fixture(scope='session', autouse=True)
+# def driver():
+#     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+#     driver.maximize_window()
+#     yield driver
+#     driver.quit()
 
 
 """

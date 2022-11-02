@@ -1,5 +1,6 @@
 import pytest
 import os
+import time
 from selenium import webdriver
 from fake_useragent import UserAgent
 from selenium.webdriver.chrome.service import Service as ChromeService
